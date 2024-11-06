@@ -17,9 +17,9 @@ app.use("/api/skills", skillRoute);
 app.use("/api/projects", projectRoute);
 
 //Fallback route to catch all 404 errors
-app.use((req, res) => {
-  res.status(404).json({ error: 'Page not found' });
-});
+app.get('/',(req,res)=>{
+  res.send("Hello")
+})
 
 app.listen(process.env.PORT, () => {
   dbConnection();
