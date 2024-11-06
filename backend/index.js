@@ -12,14 +12,16 @@ dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/api/auth", authRoute);
-app.use("/api/skills", skillRoute);
-app.use("/api/projects", projectRoute);
-
 //Fallback route to catch all 404 errors
 app.get('/',(req,res)=>{
   res.send("Hello")
 })
+
+app.use("/api/auth", authRoute);
+app.use("/api/skills", skillRoute);
+app.use("/api/projects", projectRoute);
+
+
 
 app.listen(process.env.PORT, () => {
   dbConnection();
