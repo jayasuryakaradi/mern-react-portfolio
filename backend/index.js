@@ -11,6 +11,7 @@ const app = express();
 dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
+dbConnection();
 
 //Fallback route to catch all 404 errors
 app.get('/',(req,res)=>{
@@ -24,6 +25,5 @@ app.use("/api/projects", projectRoute);
 
 
 app.listen(process.env.PORT, () => {
-  dbConnection();
   console.log("Connected to Server");
 });
